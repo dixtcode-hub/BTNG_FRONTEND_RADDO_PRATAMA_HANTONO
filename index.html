@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jelajahi katalog mobil VELORA. Temukan pilihan berdasarkan merek, harga, dan kebutuhanmu.">
+    <title>VELORA — Ruang untuk perjalanan baru</title>
+    <link rel="icon" href="VELORA.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <a class="logo" href="#">V<span>ELORA</span>
+            <sup>®</sup>
+        </a>
+        <nav aria-label="Navigasi utama">
+            <a href="#katalog">Koleksi mobil</a>
+            <a href="#tentang">Tentang kami</a>
+            <a class="nav-saved" href="#katalog" id="saved-nav">Favorit <span id="saved-count">0</span></a>
+        </nav>
+        <a class="nav-cta" href="#katalog">Temukan mobilmu ↗</a>
+    </header>
+<main>
+    <section class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow">
+                <span></span> A NEW WAY TO MOVE
+            </p>
+            <h1>Perjalanan baru.
+                <br>
+                Pilihan 
+                <em>
+                    yang tepat.
+                </em>
+            </h1>
+            <p class="intro">Dari rutinitas kota hingga petualangan akhir pekan.
+                <br>
+                Temukan mobil yang sejalan dengan hidupmu.
+            </p>
+            <a class="button light" href="#katalog">Jelajahi koleksi 
+                <span>↗</span>
+            </a>
+            <div class="hero-note">
+                <span>01 /</span> 
+                PILIH MOBIL. MULAI CERITA.
+            </div>
+        </div>
+        <div class="hero-image" role="img" aria-label="Mobil di jalan dengan lanskap pegunungan">
+                <div class="image-caption">
+                    <span>THE ROAD IS YOURS.</span>
+                <span>↗</span>
+            </div>
+        </div>
+    </section>
+<div class="ribbon">
+    <span>Pilihan berbagai merek</span>
+    <b>✳</b>
+    <span>Detail dalam satu tempat</span>
+    <b>✳</b>
+    <span>Cari sesuai kebutuhanmu</span>
+    <b>✳</b>
+    <span>Perjalanan dimulai di sini</span>
+</div>
+<section class="catalog section" id="katalog">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow muted">THE COLLECTION</p>
+            <h2>Temukan teman perjalananmu
+                <span>.</span>
+            </h2>
+        </div>
+        <p>Mobil pilihan, satu tujuan.
+            <br>
+            Perjalanan yang lebih menyenangkan.
+        </p></div>
+<form id="filters" class="filter-bar">
+    <label class="search">⌕ 
+        <input id="search" type="search" placeholder="Cari nama atau merek mobil…" aria-label="Cari mobil">
+    </label>
+    <label>
+        <span class="sr-only">Merek</span>
+        <select id="brand">
+            <option value="">Semua merek</option>
+        </select>
+    </label>
+    <label>
+        <span class="sr-only">Ketersediaan</span>
+        <select id="availability">
+            <option value="">Semua status</option>
+            <option value="tersedia">Tersedia</option>
+            <option value="sold">Terjual</option>
+        </select>
+    </label>
+    <label>
+        <span class="sr-only">Urutan</span>
+        <select id="sort">
+            <option value="default">Pilihan terbaru</option>
+            <option value="low">Harga terendah</option>
+            <option value="high">Harga tertinggi</option>
+            <option value="year">Tahun terbaru</option>
+        </select>
+    </label>
+</form>
+<div class="result-bar">
+    <div class="tabs" role="group" aria-label="Jenis bahan bakar">
+        <button class="active" data-fuel="">Semua mobil</button>
+        <button data-fuel="Listrik">Listrik</button>
+        <button data-fuel="Hybrid">Hybrid</button>
+        <button data-fuel="Bensin">Bensin</button>
+        <button data-fuel="Diesel">Diesel</button>
+    </div>
+    <span id="result-count" aria-live="polite">Memuat koleksi…</span>
+</div>
+<div class="catalog-tools">
+    <button id="saved-toggle" aria-pressed="false">♡ Hanya favorit</button>
+    <button id="reset">Reset filter ↺</button>
+</div>
+    <p id="api-status" class="api-status" role="status">Menghubungkan ke katalog…</p>
+<div id="grid" class="grid" aria-busy="true"></div>
+<div id="empty" class="empty" hidden>
+    <h3>
+        Belum ada mobil yang cocok.
+    </h3>
+    <p>Coba kata kunci lain atau reset filter pencarian.</p>
+</div>
+<div id="error" class="empty" hidden>
+    <h3>
+        Katalog belum bisa dimuat.
+    </h3>
+    <p id="error-text"></p>
+    <button class="button" id="retry">Coba lagi ↻</button>
+</div>
+    <p class="photo-note">Foto ditampilkan sesuai data penyedia API dan dapat berupa ilustrasi. Periksa detail kendaraan sebelum bertransaksi.</p>
+</section>
+<section class="about section" id="tentang">
+    <div>
+        <p class="eyebrow">MADE FOR YOUR NEXT CHAPTER</p>
+        <h2>
+            Bukan sekadar mobil.
+            <br>Awal cerita berikutnya.
+        </h2>
+    </div>
+    <div>
+        <p>VELORA adalah konsep showroom digital untuk menjelajahi mobil dengan cara yang lebih sederhana. Bandingkan pilihan, simpan favorit, dan lihat spesifikasinya dalam satu tempat.</p>
+        <div class="steps">
+            <div>
+                <b>01</b>
+                <span>Jelajahi koleksi</span>
+            </div>
+            <div>
+                <b>02</b>
+                <span>Temukan yang sesuai</span>
+            </div>
+            <div>
+                <b>03</b>
+                <span>Simpan pilihanmu</span>
+            </div>
+        </div>
+        <small>Proyek demonstrasi BTNG Frontend. Tidak melayani transaksi atau reservasi kendaraan.</small>
+    </div>
+</section>
+</main>
+<footer>
+    <a class="logo" href="#">V<span>ELORA</span>
+        <sup>®</sup>
+    </a>
+    <p>Ruang untuk perjalanan baru.</p>
+    <span>© 2026 VELORA · Proyek BTNG</span>
+</footer>
+<dialog id="detail">
+    <button class="close" aria-label="Tutup detail">×</button>
+    <div id="detail-content"></div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+</body>
+</html>
